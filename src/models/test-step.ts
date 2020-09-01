@@ -4,6 +4,7 @@ export class TestStep {
     id: string;
     testcaseid: string;
     sequence: string;
+    name: string;
     action: string;
     data: KeyValuePair[];
     tags: any[];

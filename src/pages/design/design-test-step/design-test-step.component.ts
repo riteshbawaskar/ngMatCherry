@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
+import { TestStep } from 'src/models/test-step';
 
 @Component({
   selector: 'app-design-test-step',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DesignTestStepComponent implements OnInit {
 
+  @Input() teststeps: TestStep[];
   constructor() { }
 
   ngOnInit() {
   }
 
+  deletetest(step) { }
 }

@@ -1,3 +1,5 @@
+import { TestStepsDataService } from './../../data/teststeps.data';
+import { TestCasesDataService } from './../../data/testcases.data';
 import { TestSuitesDataService } from './../../data/testsuites.data';
 import { DesignTestStepComponent } from './design-test-step/design-test-step.component';
 import { DesignTestSuiteComponent } from './design-test-suite/design-test-suite.component';
@@ -24,7 +26,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
     PerfectScrollbarModule
   ],
   declarations: [DesignComponent, DesignTestSuiteComponent, DesignTestCaseComponent, DesignTestStepComponent],
-  providers : [TestSuitesDataService]
+  providers : [TestSuitesDataService, TestCasesDataService, TestStepsDataService]
 
 })
 export class DesignModule { }

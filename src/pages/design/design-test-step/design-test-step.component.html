@@ -15,8 +15,15 @@
     </div>
   </mat-toolbar>
 
-  <div class="chat-content" fxLayout="column" fxLayoutAlign="end stretch">
-
+  <div class="chat-content" fxLayout="column" >
+    <mat-list dense>
+      <mat-list-item  *ngFor="let step of teststeps">
+        <h3 mat-line>{{ step.name }}</h3>
+        <button mat-icon-button (click)="deletetest(test.id)">
+          <mat-icon class="mat-12">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
      <!--  <div class="messages-container" *ngIf="activeChat">
         <div class="chat-message" *ngFor="let message of activeChat.messages" [ngSwitch]="message.who" fxLayout="column"
              fxLayoutAlign="end start">

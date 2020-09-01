@@ -1,3 +1,4 @@
+import { ProjectsDataService } from './../data/project.data';
 import { SidenavService } from './../services/sidenav.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,7 +31,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [SidenavService,
+  providers: [SidenavService, ProjectsDataService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider,

@@ -10,42 +10,49 @@ export class TestSuitesDataService {
       name: 'Rates',
       description: 'This is rates test suite',
       group: 'Regression',
+      projectid: '1',
     },
     {
       id: '2',
       name: 'Credit',
       description: 'This is credit test suite',
       group: 'Regression',
+      projectid: '1',
     },
     {
       id: '3',
       name: 'QC20857',
       description: 'This is credit functional test suite for Release 20.2',
       group: 'Release 20.2 ',
+      projectid: '1',
     },
     {
       id: '4',
       name: 'QC20857',
       description: 'This is credit functional test suite for Release 20.2',
       group: 'Release 20.3 ',
+      projectid: '1',
     },
     {
       id: '5',
       name: 'QC20857',
       description: 'This is credit functional test suite for Release 20.2',
       group: 'Release 20.3 ',
+      projectid: '1',
     },
     {
       id: '6',
       name: 'QC20857',
       description: 'This is credit functional test suite for Release 20.2',
       group: 'Release 20.3 ',
+      projectid: '1',
     },
     {
       id: '7',
       name: 'QC20857',
       description: 'This is credit functional test suite for Release 20.2',
       group: 'Release 20.3 ',
+      projectid: '1',
     }
   ];
 

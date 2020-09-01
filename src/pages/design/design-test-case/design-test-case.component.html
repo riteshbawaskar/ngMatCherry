@@ -17,27 +17,32 @@
         </div>
     </div>
   </mat-toolbar>
-
-  <div class="ts-content" fxLayout="column" fxLayoutAlign="end stretch">
-
-     <!--  <div class="messages-container" *ngIf="activets">
-        <div class="ts-message" *ngFor="let message of activets.messages" [ngSwitch]="message.who" fxLayout="column"
-             fxLayoutAlign="end start">
-          <div class="partner" *ngSwitchCase="'partner'" fxFlexAlign="start" fxLayout="row" fxLayoutAlign="start start">
-            <img class="avatar" [src]="activets.picture">
-            <span class="message mat-elevation-z1">{{ message.message }}</span>
-          </div>
-          <div class="me" *ngSwitchCase="'me'" fxFlexAlign="end" fxLayout="row" fxLayoutAlign="end start">
-            <span class="message mat-elevation-z1">{{ message.message }}</span>
-            <img class="avatar" [src]="avatar">
-          </div>
+  <div class="ts-content" fxLayout="column" >
+    <form>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          placeholder="search"
+          formControlName="username"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+      <div class="messages-container" *ngIf="testcases">
+        <mat-list dense>
+          <mat-list-item (click)="SelectTest(test)" *ngFor="let test of testcases">
+            <h3 mat-line>{{ test.name }}</h3>
+            <p mat-line>{{ test.description }}</p>
+            <button mat-icon-button (click)="deletetest(test.id)">
+              <mat-icon class="mat-12">delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
         </div>
       </div>
- -->
-    
-  </div>
 </div>
-
+  
 
 <mat-menu #tsMenu="matMenu">
   <button mat-menu-item>

@@ -6,11 +6,11 @@
     </mat-sidenav> 
      
 			<div  fxLayout="row" style = "height:100%">
-				<div  class="mat-elevation-z4" fxFlex=70>	
-        <app-design-test-case [suitepanel]="suitepanel" [suite]="selectedSuite"></app-design-test-case>      
+				<div  class="mat-elevation-z4" fxFlex=60>	
+        <app-design-test-case (SelectedTest) ="onSelectedTest($event)" [suitepanel]="suitepanel" [suite]="selectedSuite" [testcases]="testcases"></app-design-test-case>      
         </div>
-        <div  class="mat-elevation-z4" fxFlex=30 style="height:100%">	
-          <app-design-test-step></app-design-test-step>
+        <div  class="mat-elevation-z4" fxFlex=40 style="height:100%">	
+          <app-design-test-step [teststeps]="teststeps"></app-design-test-step>
         </div>
     
     </div>

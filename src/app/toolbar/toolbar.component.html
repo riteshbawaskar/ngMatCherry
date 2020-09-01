@@ -4,13 +4,13 @@
   </button>
 
   <div class="header-label">GTAF.IO</div>
-
-  <div>
-    <button mat-button [matMenuTriggerFor]="menu">Project Name <mat-icon>arrow_drop_down</mat-icon></button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Project 1</button>
-    
+  <span class="spacer"></span>
+  <div> Project :
+    <button mat-button [matMenuTriggerFor]="menu">{{selectedproject.name}} <mat-icon>arrow_drop_down</mat-icon></button>
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item  (click)="selectedMenu(project)" *ngFor="let project of projects" >{{project.name}}</button>    
     </mat-menu>
+  
   </div>
   <span class="spacer"></span>
 

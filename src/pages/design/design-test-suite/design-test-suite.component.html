@@ -35,7 +35,7 @@
               {{ data.children.length }}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <mat-list dense>
+          <mat-nav-list dense>
             <mat-list-item (click)="SelectSuite(suite)" *ngFor="let suite of data.children">
               <h3 mat-line>{{ suite.name }}</h3>
               <p mat-line>{{ suite.description }}</p>
@@ -43,7 +43,7 @@
                 <mat-icon class="mat-12">delete</mat-icon>
               </button>
             </mat-list-item>
-          </mat-list>
+          </mat-nav-list>
         </mat-expansion-panel>
       </mat-accordion>
       <!--  <mat-list-item class="chat-contact" (click)="setActiveChat(chat)" *ngFor="let chat of chats" mat-ripple>

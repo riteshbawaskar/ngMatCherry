@@ -1,6 +1,22 @@
 $height__ts-header: 150px;
 $height__ts-toolbar: 50px;
 $height__ts-container: calc(100% - #{$height__ts-header - $height__ts-toolbar});
+
+form
+{
+   float: left;
+   padding-right: 30px;
+   
+}
+
+mat-form-field{
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin-left: 20px;
+    width: 90%;
+    float: left;
+}
 .avatar {
   width: 41px;
     min-width: 40px;

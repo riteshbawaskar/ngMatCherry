@@ -1,6 +1,6 @@
 import { TestCase } from './../../../models/test-case';
 import { TestSuite } from './../../../models/test-suite';
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit , Input, Output , EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-design-test-case',
@@ -11,7 +11,8 @@ export class DesignTestCaseComponent implements OnInit {
 
   @Input() suitepanel;
   @Input() suite: TestSuite;
-  testcases: TestCase[];
+  @Input() testcases: TestCase[];
+  @Output() SelectedTest = new EventEmitter();
 
   constructor() { }
 
@@ -21,6 +22,11 @@ export class DesignTestCaseComponent implements OnInit {
   ToggleSuitePanel()
   {
     this.suitepanel.toggle();
+  }
+
+  SelectTest(testcase)
+  {
+    this.SelectedTest.emit(testcase);
   }
 
 }
