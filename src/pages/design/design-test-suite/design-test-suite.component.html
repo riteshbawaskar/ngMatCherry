@@ -1,0 +1,57 @@
+<div class="sidenav-container">
+  <mat-toolbar>
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
+      <mat-icon>inbox</mat-icon>
+      <h2>Test Suites</h2>
+      <span fxFlex></span>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-flat-button class="primary">+ Add New</button>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <div fxLayout="column">
+    <form>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          placeholder="search"
+          formControlName="username"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+    <perfect-scrollbar>
+    <div class="chat-contacts-container" fxLayout="column">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let data of suitesHierarchy">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>folder</mat-icon>
+              {{ data.name }}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{ data.children.length }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list dense>
+            <mat-list-item (click)="SelectSuite(suite)" *ngFor="let suite of data.children">
+              <h3 mat-line>{{ suite.name }}</h3>
+              <p mat-line>{{ suite.description }}</p>
+              <button mat-icon-button (click)="deletesuite(suite.id)">
+                <mat-icon class="mat-12">delete</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <!--  <mat-list-item class="chat-contact" (click)="setActiveChat(chat)" *ngFor="let chat of chats" mat-ripple>
+          <img class="avatar" [src]="chat?.picture" mat-list-avatar>
+          <h3 class="name" mat-line>{{chat.name}}</h3>
+          <p class="last-message" mat-line> {{chat.lastMessage}}</p>
+        </mat-list-item> -->
+    </div>
+  </perfect-scrollbar>
+  </div>
+</div>

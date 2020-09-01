@@ -1,0 +1,17 @@
+<div fxFlex="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="header">
+  <button mat-icon-button (click)="sidenav.toggle();">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="header-label">GTAF.IO</div>
+
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu">Project Name <mat-icon>arrow_drop_down</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Project 1</button>
+    
+    </mat-menu>
+  </div>
+  <span class="spacer"></span>
+
+</div>

@@ -1,0 +1,58 @@
+<div class="ts-inner-container">
+  <mat-toolbar>
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
+      
+      <button mat-icon-button (click)="ToggleSuitePanel()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h2 *ngIf="suite">{{suite.name}}</h2>
+
+      <span fxFlex></span>
+           
+        <div fxLayout="row" fxLayoutAlign="end" >
+          
+            <button mat-icon-button >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
+    </div>
+  </mat-toolbar>
+
+  <div class="ts-content" fxLayout="column" fxLayoutAlign="end stretch">
+
+     <!--  <div class="messages-container" *ngIf="activets">
+        <div class="ts-message" *ngFor="let message of activets.messages" [ngSwitch]="message.who" fxLayout="column"
+             fxLayoutAlign="end start">
+          <div class="partner" *ngSwitchCase="'partner'" fxFlexAlign="start" fxLayout="row" fxLayoutAlign="start start">
+            <img class="avatar" [src]="activets.picture">
+            <span class="message mat-elevation-z1">{{ message.message }}</span>
+          </div>
+          <div class="me" *ngSwitchCase="'me'" fxFlexAlign="end" fxLayout="row" fxLayoutAlign="end start">
+            <span class="message mat-elevation-z1">{{ message.message }}</span>
+            <img class="avatar" [src]="avatar">
+          </div>
+        </div>
+      </div>
+ -->
+    
+  </div>
+</div>
+
+
+<mat-menu #tsMenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon> account_circle</mat-icon>
+    <span> Group ts information </span>
+  </button>
+  <button mat-menu-item >
+    <mat-icon> volume_mute</mat-icon>
+    <span> Group announcement </span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item >
+    <mat-icon> clear_all</mat-icon>
+    <span> Clear ts history </span>
+  </button>
+</mat-menu>
+
+
