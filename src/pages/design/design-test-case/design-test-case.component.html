@@ -1,63 +1,64 @@
-<div class="ts-inner-container">
+<div class="ts-container">
   <mat-toolbar>
     <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
-      
       <button mat-icon-button (click)="ToggleSuitePanel()">
         <mat-icon>menu</mat-icon>
       </button>
-      <h2 *ngIf="suite">{{suite.name}}</h2>
-
+      <h2 *ngIf="suite">Suite: {{ suite.name }}</h2>
       <span fxFlex></span>
-           
-        <div fxLayout="row" fxLayoutAlign="end" >
-          
-            <button mat-icon-button >
-              <mat-icon>more_vert</mat-icon>
-            </button>
-        </div>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-icon-button>
+          <mat-icon>library_add</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>loop</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
     </div>
   </mat-toolbar>
-  <div class="ts-content" fxLayout="column" >
+  
+  <div class="tests-content" fxLayout="column">
     <form>
       <mat-form-field>
-        <input
-          type="text"
-          matInput
-          placeholder="search"
+        <input #suitesearch
+          type="text" matInput placeholder="search"
           formControlName="username"
         />
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </form>
-      <div class="messages-container" *ngIf="testcases">
-        <mat-list dense>
-          <mat-list-item (click)="SelectTest(test)" *ngFor="let test of testcases">
-            <h3 mat-line>{{ test.name }}</h3>
-            <p mat-line>{{ test.description }}</p>
-            <button mat-icon-button (click)="deletetest(test.id)">
-              <mat-icon class="mat-12">delete</mat-icon>
-            </button>
-          </mat-list-item>
-        </mat-list>
-        </div>
-      </div>
+    <perfect-scrollbar>
+    <div class="test-container" *ngIf="testcases">
+      
+      <mat-selection-list #suites class="test-cases">
+        <mat-list-option checkboxPosition="before" (click)="SelectTest(test)" *ngFor="let test of testcases | filter: suitesearch.value">
+          <mat-icon mat-list-icon>edit</mat-icon>
+          <mat-icon mat-list-icon >delete_outline</mat-icon>                
+          <h3 matLine class="name"> {{test.name}}</h3>
+          <p matLine class="desc"> {{test.description}} </p>
+            <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </perfect-scrollbar>
+  </div>
 </div>
-  
 
 <mat-menu #tsMenu="matMenu">
   <button mat-menu-item>
-    <mat-icon> account_circle</mat-icon>
-    <span> Group ts information </span>
+    <mat-icon> Delete Selected</mat-icon>
+    <span> Delete Selected Tests </span>
   </button>
-  <button mat-menu-item >
-    <mat-icon> volume_mute</mat-icon>
-    <span> Group announcement </span>
+  <button mat-menu-item>
+    <mat-icon> Run Selected</mat-icon>
+    <span> Run Selected Tests. </span>
   </button>
   <mat-divider></mat-divider>
-  <button mat-menu-item >
+  <button mat-menu-item>
     <mat-icon> clear_all</mat-icon>
     <span> Clear ts history </span>
   </button>
 </mat-menu>
-
-

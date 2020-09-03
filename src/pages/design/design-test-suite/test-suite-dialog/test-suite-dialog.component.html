@@ -1,0 +1,24 @@
+<h1 mat-dialog-title appDraggableDialog>Test Suite</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="id" [(ngModel)]="data.id"> 
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput placeholder="Group" [(ngModel)]="data.group"> 
+  </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Suite Name" [(ngModel)]="data.name"> 
+    </mat-form-field>
+   
+    <mat-form-field>
+      <input matInput  placeholder="Suite Description"  [(ngModel)]="data.description">
+    </mat-form-field>
+   
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

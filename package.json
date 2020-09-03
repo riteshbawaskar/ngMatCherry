@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
     "ngx-perfect-scrollbar": "^10.0.1",
+    "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

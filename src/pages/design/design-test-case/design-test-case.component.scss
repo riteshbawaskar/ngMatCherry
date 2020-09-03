@@ -1,86 +1,42 @@
-$height__ts-header: 150px;
-$height__ts-toolbar: 50px;
-$height__ts-container: calc(100% - #{$height__ts-header - $height__ts-toolbar});
+mat-toolbar {
+  border-bottom: 1px solid #eee;
+  height: 50px;
+  h2 {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  .mat-icon {
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+  }
+}
 
 form
 {
-   float: left;
-   padding-right: 30px;
-   
+  align-self: center;
+  width: 90%;
 }
 
 mat-form-field{
-    display: inline-block;
-    position: relative;
-    text-align: left;
-    margin-left: 20px;
-    width: 90%;
-    float: left;
+  width:90%;
 }
-.avatar {
-  width: 41px;
-    min-width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 50%;
-    text-align: center;
+
+.mat-list-option { 
+  
+  mat-icon {
+    font-size: 18px;
+    color: cadetblue;
+  } 
 }
-.ts-inner-container {
-  .ts-content {
-    height:300px;
-    background-color:#ffffff;
-    perfect-scrollbar {
-    }
-    .messages-container {
-      padding: 24px;
-      .ts-message {
-        margin: 24px 0;
-        .message {
-          padding: 8px;
-          position: relative;
-          box-shadow: 0 0 0 -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
-        }
 
-        .partner {
-          .message {
-            background: white;
-            margin-left: 12px;
-          }
-        }
-
-        .me {
-          .message {
-            background: #E1FFC7;
-            margin-right: 12px;
-          }
-        }
-      }
-    }
+.mat-selection-list{
+  .name {
+    font-size: 14px; 
+    font-weight: 500;
   }
-  .ts-respond {
-  background: white;
-  padding: 12px 24px;
-    }
-}
-
-mat-toolbar {
-  border-bottom: 1px solid #EEE;
-  height: 50px;
-  .current-contact {
-    .avatar {
-      margin: 0 14px 0 10px;
-    }
-     .status {
-      font-size: 14px;
-      color: #888;
-    }
+  .desc {
+    font-size: 10px; 
+    color : gray;
   }
-}
-.activets{
-  display: flex;
-    flex-direction: column;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    padding: 0 16px;
 }

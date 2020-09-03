@@ -5,7 +5,7 @@
       <h2>Test Suites</h2>
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openDialog('')" >
           <mat-icon>library_add</mat-icon>
         </button>
         <button mat-icon-button>
@@ -18,7 +18,7 @@
   <div fxLayout="column" class = "suites-layout">
     <form>
       <mat-form-field>
-        <input type="text" matInput #suitesearch placeholder="search" formControlName="username" />
+        <input type="text" matInput #suitesearch placeholder="search" formControlName="search" />
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </form>

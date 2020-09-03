@@ -2,7 +2,7 @@ import { ProjectsDataService } from './../data/project.data';
 import { SidenavService } from './../services/sidenav.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+
 import { MaterialModule } from '../core/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +16,7 @@ import { JwtInterceptor, ErrorInterceptor } from '../helpers';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PerfectScrollbarModule, PerfectScrollbarConfigInterface,
   PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     wheelPropagation: true
@@ -25,12 +26,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [
     AppComponent,
     ToolbarComponent,
-    SideMenuComponent
+    SideMenuComponent,
      ],
   imports: [
     PerfectScrollbarModule,
     BrowserModule,
-    FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
@@ -42,7 +42,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: PERFECT_SCROLLBAR_CONFIG , useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
     fakeBackendProvider,
-
   ],
   bootstrap: [AppComponent]
 })
