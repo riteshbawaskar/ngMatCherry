@@ -1,7 +1,7 @@
 import { Project } from './../models/project';
 import { ProjectsDataService } from './../data/project.data';
 import { SidenavService } from './../services/sidenav.service';
-import { Component } from '@angular/core';
+import { Component , ViewChild} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../core/material.module';
@@ -11,6 +11,9 @@ import { onMainContentChange } from './animation/animation';
 import { User } from '../models';
 import { users } from '../data/users.data';
 import { AccountService } from '../services';
+
+import { PerfectScrollbarConfigInterface,
+  PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +28,10 @@ export class AppComponent {
   projects: Project[];
 
   public onSideNavChange: boolean;
+ 
+  public config: PerfectScrollbarConfigInterface = {};
+
+  @ViewChild(PerfectScrollbarComponent) componentRef?: PerfectScrollbarComponent;
 
   constructor(
     private projectsDataService: ProjectsDataService,

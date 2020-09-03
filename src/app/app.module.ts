@@ -14,7 +14,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { fakeBackendProvider } from '../helpers';
 import { JwtInterceptor, ErrorInterceptor } from '../helpers';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PerfectScrollbarModule, PerfectScrollbarConfigInterface,
+  PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    wheelPropagation: true
+  };
 
 @NgModule({
   declarations: [
@@ -23,6 +28,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     SideMenuComponent
      ],
   imports: [
+    PerfectScrollbarModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -34,6 +40,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   providers: [SidenavService, ProjectsDataService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: PERFECT_SCROLLBAR_CONFIG , useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
     fakeBackendProvider,
 
   ],

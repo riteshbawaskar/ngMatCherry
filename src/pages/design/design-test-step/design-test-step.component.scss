@@ -9,6 +9,14 @@ $height__chat-container: calc(100% - #{$height__chat-header - $height__chat-tool
     border-radius: 50%;
     text-align: center;
 }
+
+mat-holder{
+font-size: 17px;
+    height: 18px;
+    width: 20px;
+    color: #808080b0;
+    float: right;
+}
 .chat-inner-container {
   .chat-content {
     height:300px;

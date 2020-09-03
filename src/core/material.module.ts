@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule} from "@angular/core";
+import { ModuleWithProviders, NgModule} from '@angular/core';
 import { MAT_LABEL_GLOBAL_OPTIONS, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -34,6 +34,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+ 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
     imports: [
@@ -70,7 +77,8 @@ import { MatTreeModule } from '@angular/material/tree';
         MatToolbarModule,
         MatTooltipModule,
         MatTreeModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        PerfectScrollbarModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -106,14 +114,18 @@ import { MatTreeModule } from '@angular/material/tree';
         MatToolbarModule,
         MatTooltipModule,
         MatTreeModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        PerfectScrollbarModule
     ],
-    providers: [
+    providers: [ {
+        provide: PERFECT_SCROLLBAR_CONFIG,
+        useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+     }
     ]
 })
 export class MaterialModule {
     constructor(public matIconRegistry: MatIconRegistry) {
-        // matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+         matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     }
 
     static forRoot(): ModuleWithProviders<MaterialModule> {

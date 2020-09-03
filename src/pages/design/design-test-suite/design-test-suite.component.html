@@ -5,53 +5,54 @@
       <h2>Test Suites</h2>
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
-        <button mat-flat-button class="primary">+ Add New</button>
+        <button mat-icon-button>
+          <mat-icon>library_add</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>loop</mat-icon>
+        </button>
       </div>
     </div>
   </mat-toolbar>
 
-  <div fxLayout="column">
+  <div fxLayout="column" class = "suites-layout">
     <form>
       <mat-form-field>
-        <input
-          type="text"
-          matInput
-          placeholder="search"
-          formControlName="username"
-        />
+        <input type="text" matInput #suitesearch placeholder="search" formControlName="username" />
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </form>
     <perfect-scrollbar>
-    <div class="chat-contacts-container" fxLayout="column">
-      <mat-accordion>
-        <mat-expansion-panel *ngFor="let data of suitesHierarchy">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon>folder</mat-icon>
-              {{ data.name }}
-            </mat-panel-title>
-            <mat-panel-description>
-              {{ data.children.length }}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-nav-list dense>
-            <mat-list-item (click)="SelectSuite(suite)" *ngFor="let suite of data.children">
-              <h3 mat-line>{{ suite.name }}</h3>
-              <p mat-line>{{ suite.description }}</p>
-              <button mat-icon-button (click)="deletesuite(suite.id)">
-                <mat-icon class="mat-12">delete</mat-icon>
-              </button>
-            </mat-list-item>
-          </mat-nav-list>
-        </mat-expansion-panel>
-      </mat-accordion>
-      <!--  <mat-list-item class="chat-contact" (click)="setActiveChat(chat)" *ngFor="let chat of chats" mat-ripple>
+      <div class="suite-container" fxLayout="column">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let data of suitesHierarchy | filter: suitesearch.value">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>folder</mat-icon>
+                {{ data.name }}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ data.children.length }} suites
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-selection-list #suites [multiple]="false" class="test-suties">
+              <mat-list-option checkboxPosition="before" (click)="SelectSuite(suite)" *ngFor="let suite of data.children">
+                <mat-icon mat-list-icon>edit</mat-icon>
+                <mat-icon mat-list-icon (click)="deletesuite(suite.id)">delete_outline</mat-icon>                
+                <h3 matLine class="name"> {{suite.name}}</h3>
+                <p matLine class="desc"> {{suite.description}} </p>
+                  <mat-divider></mat-divider>
+              </mat-list-option>
+            </mat-selection-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!--  <mat-list-item class="chat-contact" (click)="setActiveChat(chat)" *ngFor="let chat of chats" mat-ripple>
           <img class="avatar" [src]="chat?.picture" mat-list-avatar>
           <h3 class="name" mat-line>{{chat.name}}</h3>
           <p class="last-message" mat-line> {{chat.lastMessage}}</p>
         </mat-list-item> -->
-    </div>
-  </perfect-scrollbar>
+      </div>
+    </perfect-scrollbar>
   </div>
 </div>

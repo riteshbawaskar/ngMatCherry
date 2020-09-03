@@ -15,7 +15,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-
+import { FilterPipe } from '../../helpers/filter.pipes';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
     FlexLayoutModule,
     PerfectScrollbarModule
   ],
-  declarations: [DesignComponent, DesignTestSuiteComponent, DesignTestCaseComponent, DesignTestStepComponent],
+  declarations: [FilterPipe, DesignComponent, DesignTestSuiteComponent, DesignTestCaseComponent, DesignTestStepComponent],
   providers : [TestSuitesDataService, TestCasesDataService, TestStepsDataService]
 
 })

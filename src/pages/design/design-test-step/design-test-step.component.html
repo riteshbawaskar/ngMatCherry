@@ -14,32 +14,19 @@
         </div>
     </div>
   </mat-toolbar>
-
+  <perfect-scrollbar style="max-width: 600px; max-height: 400px;" >
   <div class="chat-content" fxLayout="column" >
     <mat-list dense>
       <mat-list-item  *ngFor="let step of teststeps">
+        <mat-icon>drag_indicator</mat-icon>
         <h3 mat-line>{{ step.name }}</h3>
-        <button mat-icon-button (click)="deletetest(test.id)">
-          <mat-icon class="mat-12">delete</mat-icon>
+        <button mat-icon-button (click)="deletetest(step.id)">
+          <mat-icon class="mat-10">delete</mat-icon>
         </button>
       </mat-list-item>
-    </mat-list>
-     <!--  <div class="messages-container" *ngIf="activeChat">
-        <div class="chat-message" *ngFor="let message of activeChat.messages" [ngSwitch]="message.who" fxLayout="column"
-             fxLayoutAlign="end start">
-          <div class="partner" *ngSwitchCase="'partner'" fxFlexAlign="start" fxLayout="row" fxLayoutAlign="start start">
-            <img class="avatar" [src]="activeChat.picture">
-            <span class="message mat-elevation-z1">{{ message.message }}</span>
-          </div>
-          <div class="me" *ngSwitchCase="'me'" fxFlexAlign="end" fxLayout="row" fxLayoutAlign="end start">
-            <span class="message mat-elevation-z1">{{ message.message }}</span>
-            <img class="avatar" [src]="avatar">
-          </div>
-        </div>
-      </div>
- -->
-    
+    </mat-list>    
   </div>
+  </perfect-scrollbar>
 </div>
 
 

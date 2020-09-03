@@ -26,9 +26,11 @@ ngOnInit() {
 
 deletesuite(id: any)
 {
+  if(confirm("Are you sure to delete test suite")) {
     this.tsdataService.delete(id);
     console.log('suite deleted');
     this.suitesHierarchy = this.tsdataService.getHierarchyData();
+  }
 }
 
 SelectSuite(suite)

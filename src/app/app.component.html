@@ -5,11 +5,12 @@
       <app-sidemenu></app-sidemenu> 
       </mat-sidenav>
       <mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
-        <div class="main_content">
-          <div style="padding: 20px; height:92%;">
-            <router-outlet></router-outlet>
-          
+        <div class="main_content" >
+          <perfect-scrollbar  class="scroll-container" [config]="config" [scrollIndicators]="true"  >
+          <div class="scrollable-content">
+            <router-outlet></router-outlet>          
           </div>
+          </perfect-scrollbar>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>

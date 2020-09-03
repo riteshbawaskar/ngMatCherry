@@ -1,9 +1,23 @@
 p {
     font-family: Lato;
   }
+
+ 
   
   .main_content {
     width:100%; 
     height: calc(100vh - 60px); 
     background: #efefef;
   }
+
+  
+.scroll-container {
+  position: relative;
+  height:100%;
+}
+
+.scrollable-content {
+  padding: 16px;
+  margin: 0;
+  height:100%;
+}

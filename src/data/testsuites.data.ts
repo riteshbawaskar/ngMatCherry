@@ -22,7 +22,7 @@ export class TestSuitesDataService {
     {
       id: '3',
       name: 'QC20857',
-      description: 'This is credit functional test suite for Release 20.2',
+      description: 'Test suite to test TREEMGM 1234 requirements for 20.2.1 release.',
       group: 'Release 20.2 ',
       projectid: '1',
     },
