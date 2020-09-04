@@ -14,5 +14,5 @@ export class DesignTestStepComponent implements OnInit {
   ngOnInit() {
   }
 
-  deletetest(step) { }
+  deletestep(step) { }
 }

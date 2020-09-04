@@ -1,14 +1,12 @@
-<div class="chat-inner-container">
+<div class="step-container">
   <mat-toolbar>
     <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
       <span fxFlex></span>
-               
         <div fxLayout="row" fxLayoutAlign="end" >
-          <button mat-icon-button >
-            <mat-icon>menu</mat-icon>
-          </button>
-
-            <button mat-icon-button >
+            <button mat-icon-button>
               <mat-icon>more_vert</mat-icon>
             </button>
         </div>
@@ -32,8 +30,8 @@
 
 <mat-menu #chatMenu="matMenu">
   <button mat-menu-item>
-    <mat-icon> account_circle</mat-icon>
-    <span> Group chat information </span>
+    <mat-icon> delete</mat-icon>
+    <span> Delete </span>
   </button>
   <button mat-menu-item >
     <mat-icon> volume_mute</mat-icon>

@@ -20,10 +20,10 @@
     </div>
   </mat-toolbar>
   
-  <div class="tests-content" fxLayout="column">
+  <div class="tests-layout" fxLayout="column">
     <form>
       <mat-form-field>
-        <input #suitesearch
+        <input #testsearch
           type="text" matInput placeholder="search"
           formControlName="username"
         />
@@ -31,19 +31,26 @@
       </mat-form-field>
     </form>
     <perfect-scrollbar>
-    <div class="test-container" *ngIf="testcases">
-      
+    <div class="test-container" *ngIf="testcases">      
       <mat-selection-list #suites class="test-cases">
-        <mat-list-option checkboxPosition="before" (click)="SelectTest(test)" *ngFor="let test of testcases | filter: suitesearch.value">
+        <mat-list-option checkboxPosition="before" (click)="SelectTest(test)" *ngFor="let test of testcases | filter: testsearch.value">
           <mat-icon mat-list-icon>edit</mat-icon>
-          <mat-icon mat-list-icon >delete_outline</mat-icon>                
+          <mat-icon mat-list-icon >delete_outline</mat-icon>  
+          
+          <div matLine > <div class="id">{{test.id}}.</div>  
+            
+              <mat-chip-list   style="float:right"  *ngFor="let tags of test.tags">
+                <mat-chip color="primary" selected>{{ tags}} </mat-chip>
+              </mat-chip-list>
+      
+          </div>
           <h3 matLine class="name"> {{test.name}}</h3>
           <p matLine class="desc"> {{test.description}} </p>
             <mat-divider></mat-divider>
         </mat-list-option>
       </mat-selection-list>
     </div>
-  </perfect-scrollbar>
+    </perfect-scrollbar>
   </div>
 </div>
 

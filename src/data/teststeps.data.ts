@@ -10,7 +10,7 @@ STEPS: TestStep[] = [
   {
     id: '1',
     name: 'Book a trade by sending trade xml to Crre',
-    testcaseid: '1',
+    testcaseid: 'TC005',
     tags: ['Booking', 'Day1'],
     active: true,
     action: 'crre.BookTrade',
@@ -20,7 +20,7 @@ STEPS: TestStep[] = [
   {
     id: '2',
     name: 'Amend a trade by sending trade xml to Crre',
-    testcaseid: '1',
+    testcaseid: 'TC005',
     tags: ['Booking', 'Day2'],
     active: true,
     action: 'crre.AmendTrade',
@@ -30,7 +30,7 @@ STEPS: TestStep[] = [
   {
     id: '3',
     name: 'Terminate a trade by sending trade xml to Crre',
-    testcaseid: '1',
+    testcaseid: 'TC005',
     tags: ['Booking', 'Day3'],
     active: true,
     action: 'crre.AmendTrade',
@@ -40,7 +40,7 @@ STEPS: TestStep[] = [
   {
     id: '4',
     name: 'verify version 1 of trade in crre',
-    testcaseid: '1',
+    testcaseid: 'TC005',
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
