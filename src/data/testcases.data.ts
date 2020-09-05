@@ -32,7 +32,7 @@ TESTS: TestCase[] = [
   },
   {
     id: 'TC004',
-    name: 'Rates FIX Float amend cancel',
+    name: 'Swaptopn FIX Float amend cancel Terminate Confirmation scenario',
     description: 'This is test case for Req TREEMGM 1400',
     testsuiteid: '2',
     tags: ['regression', 'R20.4'],

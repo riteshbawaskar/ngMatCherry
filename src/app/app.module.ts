@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SideMenuComponent } from './sidemenu/sidemenu.component';
 import { AppRoutingModule } from './app-routing.module';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { fakeBackendProvider } from '../helpers';
 import { JwtInterceptor, ErrorInterceptor } from '../helpers';
@@ -36,6 +37,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FlexLayoutModule,
     HttpClientModule,
     AppRoutingModule,
+    DragDropModule
   ],
   providers: [SidenavService, ProjectsDataService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

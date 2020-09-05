@@ -14,8 +14,7 @@ STEPS: TestStep[] = [
     tags: ['Booking', 'Day1'],
     active: true,
     action: 'crre.BookTrade',
-    data: [],
-    sequence: '1',
+    data: []
   },
   {
     id: '2',
@@ -24,8 +23,7 @@ STEPS: TestStep[] = [
     tags: ['Booking', 'Day2'],
     active: true,
     action: 'crre.AmendTrade',
-    data: [],
-    sequence: '2',
+    data: []
   },
   {
     id: '3',
@@ -34,8 +32,7 @@ STEPS: TestStep[] = [
     tags: ['Booking', 'Day3'],
     active: true,
     action: 'crre.AmendTrade',
-    data: [],
-    sequence: '3',
+    data: []
   },
   {
     id: '4',
@@ -44,8 +41,52 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
-    data: [],
-    sequence: '4',
+    data: []
+  },
+  {
+    id: '5',
+    name: 'verify version 1 of trade in crre',
+    testcaseid: 'TC005',
+    tags: ['verify', 'Day1'],
+    active: true,
+    action: 'crre.VerifyTrade',
+    data: []
+  },
+  {
+    id: '6',
+    name: 'verify version 1 of trade in crre',
+    testcaseid: 'TC005',
+    tags: ['verify', 'Day1'],
+    active: true,
+    action: 'crre.VerifyTrade',
+    data: []
+  },
+  {
+    id: '7',
+    name: 'verify version 1 of trade in crre',
+    testcaseid: 'TC005',
+    tags: ['verify', 'Day1'],
+    active: true,
+    action: 'crre.VerifyTrade',
+    data: []
+  },
+  {
+    id: '8',
+    name: 'verify version 1 of trade in crre',
+    testcaseid: 'TC005',
+    tags: ['verify', 'Day1'],
+    active: true,
+    action: 'crre.VerifyTrade',
+    data: []
+  },
+  {
+    id: '9',
+    name: 'verify version 1 of trade in crre',
+    testcaseid: 'TC005',
+    tags: ['verify', 'Day1'],
+    active: true,
+    action: 'crre.VerifyTrade',
+    data: []
   },
 ];
 

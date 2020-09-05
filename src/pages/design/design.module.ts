@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import { DesignComponent } from './design.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {TestSuiteDialogComponent} from './design-test-suite/test-suite-dialog/test-suite-dialog.component';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -32,7 +32,8 @@ import { DraggableDialogDirective } from '../../helpers/DraggableDialog.directiv
     FlexLayoutModule,
     PerfectScrollbarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   declarations: [
     FilterPipe,

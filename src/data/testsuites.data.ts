@@ -53,6 +53,13 @@ export class TestSuitesDataService {
       description: 'This is credit functional test suite for Release 20.2',
       group: 'Release 20.3 ',
       projectid: '1',
+    },
+    {
+      id: '8',
+      name: 'CFTC_Rearch',
+      description: 'CFTC Rearch test suite for 20.4',
+      group: 'Release 20.4 ',
+      projectid: '1',
     }
   ];
 

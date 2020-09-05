@@ -1,47 +1,35 @@
-<div class="step-container">
+<div class="container">
   <mat-toolbar>
     <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
-      <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
+     
       <span fxFlex></span>
         <div fxLayout="row" fxLayoutAlign="end" >
+          <button mat-icon-button>
+            <mat-icon>library_add</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>loop</mat-icon>
+          </button>
             <button mat-icon-button>
               <mat-icon>more_vert</mat-icon>
             </button>
         </div>
     </div>
   </mat-toolbar>
-  <perfect-scrollbar style="max-width: 600px; max-height: 400px;" >
-  <div class="chat-content" fxLayout="column" >
-    <mat-list dense>
-      <mat-list-item  *ngFor="let step of teststeps">
-        <mat-icon>drag_indicator</mat-icon>
-        <h3 mat-line>{{ step.name }}</h3>
-        <button mat-icon-button (click)="deletetest(step.id)">
-          <mat-icon class="mat-10">delete</mat-icon>
-        </button>
-      </mat-list-item>
-    </mat-list>    
+  <div class="step-layout">
+  <perfect-scrollbar #perfectScroll style="max-width: 600px; max-height: 480px;" >
+  <div class="step-container" fxLayout="column" >
+    <div cdkDropList class="step-list" (cdkDropListDropped)="drop($event)">
+      <div class="step" *ngFor="let step of teststeps" cdkDrag>
+        Step {{step.id}}. {{step.name}}
+        <div>
+          <mat-icon mat-list-icon>edit</mat-icon>
+          <mat-icon mat-list-icon >delete_outline</mat-icon>  
+        </div>
+      </div>
+
+    </div>
   </div>
   </perfect-scrollbar>
 </div>
-
-
-<mat-menu #chatMenu="matMenu">
-  <button mat-menu-item>
-    <mat-icon> delete</mat-icon>
-    <span> Delete </span>
-  </button>
-  <button mat-menu-item >
-    <mat-icon> volume_mute</mat-icon>
-    <span> Group announcement </span>
-  </button>
-  <mat-divider></mat-divider>
-  <button mat-menu-item >
-    <mat-icon> clear_all</mat-icon>
-    <span> Clear chat history </span>
-  </button>
-</mat-menu>
-
-
+</div>
