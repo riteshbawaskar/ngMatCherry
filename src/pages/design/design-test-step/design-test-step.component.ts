@@ -1,3 +1,4 @@
+import { TestCase } from './../../../models/test-case';
 import { Component, OnInit , Input , ViewChild} from '@angular/core';
 import { TestStep } from 'src/models/test-step';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
@@ -14,6 +15,7 @@ export class DesignTestStepComponent implements OnInit {
 
   @ViewChild('perfectScroll') perfectScroll: PerfectScrollbarComponent;
   @Input() teststeps: TestStep[];
+  @Input() testcase: TestCase;
   constructor() {
   }
 

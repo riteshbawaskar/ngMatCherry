@@ -1,7 +1,10 @@
 <div class="container">
   <mat-toolbar>
     <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
-     
+      <button mat-icon-button >
+        <mat-icon>science</mat-icon>
+      </button>
+      <h2 *ngIf="testcase">Test: {{ testcase.id }}</h2>
       <span fxFlex></span>
         <div fxLayout="row" fxLayoutAlign="end" >
           <button mat-icon-button>
@@ -11,7 +14,7 @@
             <mat-icon>loop</mat-icon>
           </button>
             <button mat-icon-button>
-              <mat-icon>more_vert</mat-icon>
+              <mat-icon>save</mat-icon>
             </button>
         </div>
     </div>
@@ -21,15 +24,24 @@
   <div class="step-container" fxLayout="column" >
     <div cdkDropList class="step-list" (cdkDropListDropped)="drop($event)">
       <div class="step" *ngFor="let step of teststeps" cdkDrag>
-        Step {{step.id}}. {{step.name}}
-        <div>
-          <mat-icon mat-list-icon>edit</mat-icon>
-          <mat-icon mat-list-icon >delete_outline</mat-icon>  
+      
+       <!--   -->
+         <div class="step-name" >Step {{step.id}}. {{step.name}}
+         <p> <small class="tags" *ngFor="let tag of step.tags">
+        	<span class="tag">
+            <span>{{tag}}</span>
+          </span>          
+      </small>
+    </p>
+         </div>
+          <div style="align-content: flex-end;">
+            <mat-icon mat-list-icon>edit</mat-icon>
+            <mat-icon mat-list-icon >delete_outline</mat-icon>    
+          </div>
+          
         </div>
       </div>
-
     </div>
-  </div>
   </perfect-scrollbar>
 </div>
 </div>

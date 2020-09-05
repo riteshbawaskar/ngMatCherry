@@ -8,13 +8,13 @@
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
         <button mat-icon-button>
+          <mat-icon>play_circle_outline</mat-icon>
+        </button>
+        <button mat-icon-button>
           <mat-icon>library_add</mat-icon>
         </button>
         <button mat-icon-button>
           <mat-icon>loop</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>more_vert</mat-icon>
         </button>
       </div>
     </div>
@@ -31,8 +31,8 @@
     </form>
     <perfect-scrollbar>
     <div class="test-container" *ngIf="testcases">      
-      <mat-selection-list #suites class="test-cases">
-        <mat-list-option checkboxPosition="before" (click)="SelectTest(test)" *ngFor="let test of testcases | filter: testsearch.value">
+      <mat-selection-list #suites  [multiple]="false" class="test-cases">
+        <mat-list-option checkboxPosition="before"  (click)="SelectTest(test)" *ngFor="let test of testcases | filter: testsearch.value">
           <mat-icon mat-list-icon>edit</mat-icon>
           <mat-icon mat-list-icon >delete_outline</mat-icon>  
           

@@ -10,7 +10,7 @@
         <app-design-test-case (SelectedTest) ="onSelectedTest($event)" [suitepanel]="suitepanel" [suite]="selectedSuite" [testcases]="testcases"></app-design-test-case>      
         </div>
         <div  class="mat-elevation-z4" fxFlex=40 style="height:100%">	
-          <app-design-test-step [teststeps]="teststeps"></app-design-test-step>
+          <app-design-test-step [teststeps]="teststeps" [testcase]="selectedTest"></app-design-test-step>
         </div>
     
     </div>

@@ -30,23 +30,26 @@ mat-toolbar {
 }
 
 .step {
-  font-family: cursive;
-  font-size: 12px;
-  padding: 20px 10px;
+  
+  padding: 10px 10px 0px 10px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
   background: white;
 
+  .step-name { 
+    font-family: cursive;
+    font-size: 12px;
+  }
   mat-icon {
     font-size: 18px;
     visibility: hidden;
     cursor: pointer;
+    
   }
 
 }
@@ -67,4 +70,60 @@ mat-toolbar {
 
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+$price-tag-background:  #b4d8f0;
+$price-tag-color: #fff;
+$price-tag-height: 14px;
+$price-tag-corner: 2px;
+$price-tag-dot-radius: 4px;
+$price-tag-dot-background: #fff;
+
+.tag {
+  font-size: 10px;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  height: $price-tag-height;
+  margin-left: $price-tag-height / 2;
+  padding: 0 5px 0 5px;
+  color: $price-tag-color;
+  border-radius: 0 $price-tag-corner $price-tag-corner 0;
+  background-color: $price-tag-background;
+  line-height: 3;
+  justify-content: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+  }
+
+  &::before {
+    $price-tag-side: round($price-tag-height / 1.428);
+
+    left: -$price-tag-side / 2;
+    width: $price-tag-side;
+    height: $price-tag-side;
+    transform: rotate(45deg);
+    border-radius: 0 0 0 $price-tag-corner;
+    background-color: $price-tag-background;
+  }
+
+  &::after {
+    z-index: 1;
+    top: 50%;
+    left: -$price-tag-height / 2;
+    width: $price-tag-dot-radius;
+    height: $price-tag-dot-radius;
+    transform: translate(-50%, -50%) translateX($price-tag-height / 2);
+    border-radius: $price-tag-dot-radius / 2;
+    background-color: $price-tag-dot-background;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
 }
