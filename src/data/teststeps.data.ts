@@ -75,7 +75,7 @@ STEPS: TestStep[] = [
     name: 'verify version 1 of trade in crre',
     testcaseid: 'TC005',
     tags: ['verify', 'Day1'],
-    active: true,
+    active: false,
     action: 'crre.VerifyTrade',
     data: []
   },

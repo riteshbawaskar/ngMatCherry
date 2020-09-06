@@ -1,47 +1,49 @@
 <div class="container">
   <mat-toolbar>
     <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
-      <button mat-icon-button >
+      <button mat-icon-button>
         <mat-icon>science</mat-icon>
       </button>
-      <h2 *ngIf="testcase">Test: {{ testcase.id }}</h2>
+      <h2 *ngIf="testcase">Test: </h2>
+      <h2 *ngIf="testcase" style="color:blue">{{ testcase.id }}</h2>
       <span fxFlex></span>
-        <div fxLayout="row" fxLayoutAlign="end" >
-          <button mat-icon-button>
-            <mat-icon>library_add</mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon>loop</mat-icon>
-          </button>
-            <button mat-icon-button>
-              <mat-icon>save</mat-icon>
-            </button>
-        </div>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-icon-button>
+          <mat-icon>library_add</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>loop</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
     </div>
   </mat-toolbar>
   <div class="step-layout">
-  <perfect-scrollbar #perfectScroll style="max-width: 600px; max-height: 480px;" >
-  <div class="step-container" fxLayout="column" >
-    <div cdkDropList class="step-list" (cdkDropListDropped)="drop($event)">
-      <div class="step" *ngFor="let step of teststeps" cdkDrag>
-      
-       <!--   -->
-         <div class="step-name" >Step {{step.id}}. {{step.name}}
-         <p> <small class="tags" *ngFor="let tag of step.tags">
-        	<span class="tag">
-            <span>{{tag}}</span>
-          </span>          
-      </small>
-    </p>
-         </div>
-          <div style="align-content: flex-end;">
-            <mat-icon mat-list-icon>edit</mat-icon>
-            <mat-icon mat-list-icon >delete_outline</mat-icon>    
+    <perfect-scrollbar #perfectScroll>
+      <div class="step-container" fxLayout="column">
+        <div cdkDropList class="step-list" (cdkDropListDropped)="drop($event)">
+          <div class="step" *ngFor="let step of teststeps" cdkDrag>
+
+            <!--   -->
+            <div class="step-name" [ngStyle]="{'text-decoration': step.active?'none':'line-through'}">Step {{step.id}}.
+              {{step.name}}
+              <p> <small class="tags" *ngFor="let tag of step.tags">
+                  <span class="tag">
+                    <span>{{tag}}</span>
+                  </span>
+                </small>
+              </p>
+            </div>
+            <div style="align-content: flex-end;">
+              <mat-icon mat-list-icon>edit</mat-icon>
+              <mat-icon mat-list-icon>delete_outline</mat-icon>
+            </div>
+
           </div>
-          
         </div>
       </div>
-    </div>
-  </perfect-scrollbar>
-</div>
+    </perfect-scrollbar>
+  </div>
 </div>

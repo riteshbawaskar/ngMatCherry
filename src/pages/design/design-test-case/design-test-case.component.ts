@@ -1,6 +1,9 @@
+import { TestCaseDialogComponent } from './test-case-dialog/test-case-dialog.component';
 import { TestCase } from './../../../models/test-case';
 import { TestSuite } from './../../../models/test-suite';
-import { Component, OnInit , Input, Output , EventEmitter} from '@angular/core';
+import { Component, OnInit , Input, Output , EventEmitter, ViewChild} from '@angular/core';
+import { PerfectScrollbarConfigInterface, PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-design-test-case',
@@ -13,8 +16,9 @@ export class DesignTestCaseComponent implements OnInit {
   @Input() suite: TestSuite;
   @Input() testcases: TestCase[];
   @Output() SelectedTest = new EventEmitter();
+  @ViewChild('perfectScroll') perfectScroll: PerfectScrollbarComponent;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -27,6 +31,7 @@ export class DesignTestCaseComponent implements OnInit {
   SelectTest(testcase)
   {
     this.SelectedTest.emit(testcase);
+    this.perfectScroll.directiveRef.update();
   }
 
 }

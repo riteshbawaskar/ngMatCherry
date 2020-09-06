@@ -26,16 +26,27 @@ ngOnInit() {
 
   }
 
-  openDialog(suite): void {
+  refresh(){
+    this.suitesHierarchy = this.tsdataService.getHierarchyData();
+    console.log(this.suitesHierarchy);
+
+  }
+
+  openDialog(): void {
+
+    this.suite = new TestSuite();
+
     let dialogRef = this.dialog.open(TestSuiteDialogComponent, {
-      width: '200',
-      data: suite
+      width: '300px',
+      data: this.suite
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('New Suite Added' + result);
       this.suite = result;
-      this.tsdataService.add(suite);
+      this.suite.group = this.suite.group.trim();
+      this.suite.id = '0';
+      this.tsdataService.add(this.suite);
       this.suitesHierarchy = this.tsdataService.getHierarchyData();
       console.log(result);
 
@@ -49,6 +60,23 @@ deletesuite(id: any)
     console.log('suite deleted');
     this.suitesHierarchy = this.tsdataService.getHierarchyData();
   }
+}
+
+editsuite(suite)
+{
+  let dialogRef = this.dialog.open(TestSuiteDialogComponent, {
+    width: '300px',
+    data: suite
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    this.suite = result;
+    this.suite.group = this.suite.group.trim();
+    this.tsdataService.add(this.suite);
+    this.suitesHierarchy = this.tsdataService.getHierarchyData();
+    console.log(result);
+
+  });
 }
 
 SelectSuite(suite)

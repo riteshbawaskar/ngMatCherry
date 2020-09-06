@@ -63,6 +63,18 @@ export class TestSuitesDataService {
     }
   ];
 
+  update(data)
+  {
+    this.SUITES.forEach((item) => {
+      if (item.id == data.id)
+      {
+        item.name = data.name;
+        item.description = data.description;
+        item.group = data.group;
+        item.projectid = data.projectid;
+      }
+    })
+  }
   getData(): Observable<TestSuite[]> {
     return of<TestSuite[]>(this.SUITES);
   }

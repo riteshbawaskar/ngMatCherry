@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MaterialModule } from './../../core/material.module';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',

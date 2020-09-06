@@ -5,10 +5,10 @@
       <h2>Test Suites</h2>
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
-        <button mat-icon-button (click)="openDialog('')" >
+        <button mat-icon-button (click)="openDialog()" >
           <mat-icon>library_add</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="refresh()">
           <mat-icon>loop</mat-icon>
         </button>
       </div>
@@ -38,7 +38,7 @@
 
             <mat-selection-list #suites [multiple]="false" class="test-suties">
               <mat-list-option checkboxPosition="before" (click)="SelectSuite(suite)" *ngFor="let suite of data.children">
-                <mat-icon mat-list-icon>edit</mat-icon>
+                <mat-icon mat-list-icon (click)="editsuite(suite)">edit </mat-icon>
                 <mat-icon mat-list-icon (click)="deletesuite(suite.id)">delete_outline</mat-icon>                
                 <h3 matLine class="name"> {{suite.name}}</h3>
                 <p matLine class="desc"> {{suite.description}} </p>

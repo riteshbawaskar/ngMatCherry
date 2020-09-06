@@ -4,7 +4,8 @@
       <button mat-icon-button (click)="ToggleSuitePanel()">
         <mat-icon>menu</mat-icon>
       </button>
-      <h2 *ngIf="suite">Suite: {{ suite.name }}</h2>
+      <h2 *ngIf="suite">Suite: {{ suite.name }}</h2> 
+      <small *ngIf="suite"> ({{testcases.length}} Tests.)</small>
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
         <button mat-icon-button>
@@ -19,36 +20,37 @@
       </div>
     </div>
   </mat-toolbar>
-  
+
   <div class="tests-layout" fxLayout="column">
     <form>
       <mat-form-field>
-        <input #testsearch
-          type="text" matInput placeholder="search"
-        />
+        <input #testsearch type="text" matInput placeholder="search" />
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </form>
-    <perfect-scrollbar>
-    <div class="test-container" *ngIf="testcases">      
-      <mat-selection-list #suites  [multiple]="false" class="test-cases">
-        <mat-list-option checkboxPosition="before"  (click)="SelectTest(test)" *ngFor="let test of testcases | filter: testsearch.value">
-          <mat-icon mat-list-icon>edit</mat-icon>
-          <mat-icon mat-list-icon >delete_outline</mat-icon>  
-          
-          <div matLine > <div class="id">{{test.id}}.</div>  
-            
-              <mat-chip-list   style="float:right"  *ngFor="let tags of test.tags">
+    <perfect-scrollbar #perfectScroll>
+      <div class="test-container" *ngIf="testcases">
+        <mat-selection-list #suites [multiple]="false" class="test-cases">
+          <mat-list-option checkboxPosition="before" (click)="SelectTest(test)"
+            *ngFor="let test of testcases | filter: testsearch.value">
+            <mat-icon mat-list-icon>edit</mat-icon>
+            <mat-icon mat-list-icon>delete_outline</mat-icon>
+
+            <div matLine>
+              <div class="id">{{test.id}}.</div>
+
+              <mat-chip-list style="float:right" *ngFor="let tags of test.tags">
                 <mat-chip color="primary" selected>{{ tags}} </mat-chip>
               </mat-chip-list>
-      
-          </div>
-          <h3 matLine class="name"> {{test.name}}</h3>
-          <p matLine class="desc"> {{test.description}} </p>
+
+            </div>
+            <h3 matLine class="name" [ngStyle]="{'text-decoration': test.active?'none':'line-through','color': test.active?'black':'grey'}"> {{test.name}}
+            </h3>
+            <p matLine class="desc"> {{test.description}} </p>
             <mat-divider></mat-divider>
-        </mat-list-option>
-      </mat-selection-list>
-    </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
     </perfect-scrollbar>
   </div>
 </div>
