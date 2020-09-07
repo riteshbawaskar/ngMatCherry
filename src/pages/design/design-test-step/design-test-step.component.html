@@ -8,7 +8,7 @@
       <h2 *ngIf="testcase" style="color:blue">{{ testcase.id }}</h2>
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openDialog()">
           <mat-icon>library_add</mat-icon>
         </button>
         <button mat-icon-button>

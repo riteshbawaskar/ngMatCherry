@@ -1,6 +1,10 @@
 <h1 mat-dialog-title appDraggableDialog>Test case</h1>
 <div mat-dialog-content>
-<!--  <p *ngIf="data.id">
+<p style="float: right;">
+  <mat-slide-toggle>Enabled</mat-slide-toggle>
+ 
+</p>
+  <p *ngIf="data.id">
     <mat-form-field>
       <input matInput disabled="true" placeholder="id" [(ngModel)]="data.id">
     </mat-form-field>
@@ -14,8 +18,23 @@
     <mat-form-field>
       <input matInput placeholder="Test Description" [(ngModel)]="data.description">
     </mat-form-field>
-  </p>-->
-
+  </p>
+  <p>
+    <mat-form-field >
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let tag of data.tags" [selectable]="selectable"
+                 [removable]="removable" (removed)="remove(tag)">
+          {{tag}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Tags..."
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Close</button>

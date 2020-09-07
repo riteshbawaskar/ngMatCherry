@@ -80,7 +80,8 @@ export class TestSuitesDataService {
   }
 
   add(data) {
-    this.SUITES.push(data);
+    this.SUITES.push(data.toString());
+    console.log(this.SUITES);
   }
 
   delete(index) {
@@ -92,7 +93,7 @@ export class TestSuitesDataService {
       ...this.SUITES.slice(0, index),
       ...this.SUITES.slice(index + 1),
     ]; */
-    console.log(this.SUITES);
+  //  console.log(this.SUITES);
   }
 
   dataLength() {

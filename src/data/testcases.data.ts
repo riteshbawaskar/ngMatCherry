@@ -135,7 +135,8 @@ getDataforSuite(id): TestCase[] {
 }
 
 add(data) {
-  this.TESTS.push(data);
+  this.TESTS.push(data.toString());
+  console.log(this.TESTS);
 }
 
 delete(index) {

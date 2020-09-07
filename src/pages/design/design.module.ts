@@ -1,3 +1,4 @@
+import { TestCaseDialogComponent } from './design-test-case/test-case-dialog/test-case-dialog.component';
 import { TestStepsDataService } from './../../data/teststeps.data';
 import { TestCasesDataService } from './../../data/testcases.data';
 import { TestSuitesDataService } from './../../data/testsuites.data';
@@ -23,6 +24,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { DraggableDialogDirective } from '../../helpers/DraggableDialog.directive';
+import { TestStepDialogComponent } from './design-test-step/test-step-dialog/test-step-dialog.component';
 
 @NgModule({
   imports: [
@@ -42,7 +44,9 @@ import { DraggableDialogDirective } from '../../helpers/DraggableDialog.directiv
     DesignTestSuiteComponent,
     DesignTestCaseComponent,
     DesignTestStepComponent,
-    TestSuiteDialogComponent
+    TestSuiteDialogComponent,
+    TestCaseDialogComponent,
+    TestStepDialogComponent
   ],
   providers: [
     TestSuitesDataService,
