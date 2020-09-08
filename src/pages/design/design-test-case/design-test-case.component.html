@@ -33,8 +33,8 @@
         <mat-selection-list #suites [multiple]="false" class="test-cases">
           <mat-list-option checkboxPosition="before" (click)="SelectTest(test)"
             *ngFor="let test of testcases | filter: testsearch.value">
-            <mat-icon mat-list-icon>edit</mat-icon>
-            <mat-icon mat-list-icon>delete_outline</mat-icon>
+            <mat-icon mat-list-icon (click)="editTest(test)">edit</mat-icon>
+            <mat-icon mat-list-icon (click)="deleteTest(test)">delete_outline</mat-icon>
 
             <div matLine>
               <div class="id">{{test.id}}.</div>

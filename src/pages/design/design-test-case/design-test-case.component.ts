@@ -35,6 +35,25 @@ export class DesignTestCaseComponent implements OnInit {
     this.perfectScroll.directiveRef.update();
   }
 
+  deleteTest(testcase: TestCase): void
+  {
+    if(confirm('Are you sure to delete test test case')) {
+    this.tcdataservice.delete(testcase.id);
+    this.testcases =  this.tcdataservice.getDataforSuite(this.suite.id);
+
+    }
+  }
+
+  editTest(testcase: TestCase): void
+  {
+
+    let dialogRef = this.dialog.open(TestCaseDialogComponent, {
+      width: '300px',
+      data: testcase
+    });
+
+  }
+
   openDialog(): void {
 
     let testcase = new TestCase();
