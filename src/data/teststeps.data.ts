@@ -14,7 +14,8 @@ STEPS: TestStep[] = [
     tags: ['Booking', 'Day1'],
     active: true,
     action: 'crre.BookTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '2',
@@ -23,7 +24,8 @@ STEPS: TestStep[] = [
     tags: ['Booking', 'Day2'],
     active: true,
     action: 'crre.AmendTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '3',
@@ -32,7 +34,8 @@ STEPS: TestStep[] = [
     tags: ['Booking', 'Day3'],
     active: true,
     action: 'crre.AmendTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '4',
@@ -41,7 +44,8 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '5',
@@ -50,7 +54,8 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '6',
@@ -59,7 +64,8 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '7',
@@ -68,7 +74,8 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '8',
@@ -77,7 +84,8 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: false,
     action: 'crre.VerifyTrade',
-    data: []
+    input: [],
+    validation : []
   },
   {
     id: '9',
@@ -86,7 +94,8 @@ STEPS: TestStep[] = [
     tags: ['verify', 'Day1'],
     active: true,
     action: 'crre.VerifyTrade',
-    data: []
+    input: [],
+    validation : []
   },
 ];
 

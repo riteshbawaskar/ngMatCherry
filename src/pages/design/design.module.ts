@@ -1,3 +1,5 @@
+import { ActionsDataService } from './../../data/actions.data';
+import { MatSelectSearchModule } from './../../core/mat-select-search/mat-select-search.module';
 import { TestCaseDialogComponent } from './design-test-case/test-case-dialog/test-case-dialog.component';
 import { TestStepsDataService } from './../../data/teststeps.data';
 import { TestCasesDataService } from './../../data/testcases.data';
@@ -35,7 +37,8 @@ import { TestStepDialogComponent } from './design-test-step/test-step-dialog/tes
     PerfectScrollbarModule,
     FormsModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    MatSelectSearchModule
   ],
   declarations: [
     FilterPipe,
@@ -52,6 +55,7 @@ import { TestStepDialogComponent } from './design-test-step/test-step-dialog/tes
     TestSuitesDataService,
     TestCasesDataService,
     TestStepsDataService,
+    ActionsDataService
   ],
 })
 export class DesignModule {}

@@ -3,9 +3,51 @@
     <p style="float: right;">
         <mat-slide-toggle>Enabled</mat-slide-toggle>       
     </p>
-    <p>
+    <p *ngIf="data.id">
+      <mat-form-field>
+        <input matInput disabled="true" placeholder="id" [(ngModel)]="data.id">
+      </mat-form-field>
+    </p>
+      <p>
         <mat-form-field>
-          <input matInput placeholder="Step Details" >
+          <mat-select [formControl]="frmCtrl" placeholder="Action" #singleSelect [(ngModel)]="data.action" (selectionChange)="OnSelectionChange($event)">
+            <mat-select-search [formControl]="frmFilterCtrl" ></mat-select-search>
+            <mat-option *ngFor="let action of filteredActions | async" [value]="action">
+              {{action.name}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </p>
+      <p>
+      <mat-form-field style="width:100%">
+          <input matInput placeholder="Step Description" [(ngModel)]="data.name" >
+        </mat-form-field>
+      </p>
+      <p *ngFor="let input of data.input">
+        <mat-form-field>
+          <input matInput placeholder="@input" [(ngModel)]="input.key" >
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="@value" [(ngModel)]="input.value" >
+        </mat-form-field>
+      </p>
+      <mat-divider></mat-divider>
+      <p *ngFor="let validate of data.validation">
+        <mat-form-field>
+          <input matInput placeholder="@validate" [(ngModel)]="validate.key" >
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="@value" [(ngModel)]="validate.value" >
+        </mat-form-field>
+      </p>
+
+    
+    
 </div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button (click)="AddInput()">Add Input Field</button>
+  <button mat-button (click)="AddValidation()">Add Validation</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial> {{data.id?'Update':'Add'}}</button>
+</div> 

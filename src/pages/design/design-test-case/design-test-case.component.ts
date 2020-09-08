@@ -48,7 +48,7 @@ export class DesignTestCaseComponent implements OnInit {
   {
 
     let dialogRef = this.dialog.open(TestCaseDialogComponent, {
-      width: '300px',
+      width: '400px',
       data: testcase
     });
 

@@ -5,7 +5,8 @@ export class TestStep {
     testcaseid: string;
     name: string;
     action: string;
-    data: KeyValuePair[];
+    input: KeyValuePair[];
+    validation: KeyValuePair[];
     tags: any[];
     active: boolean;
   }

@@ -45,7 +45,7 @@ export class DesignTestStepComponent implements OnInit {
     teststep.testcaseid = this.testcase.id;
 
     let dialogRef = this.dialog.open(TestStepDialogComponent, {
-      width: '300px',
+      width: '500px',
       data: teststep
     });
 
