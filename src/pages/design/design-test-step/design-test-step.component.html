@@ -8,13 +8,13 @@
       <h2 *ngIf="testcase" style="color:blue">{{ testcase.id }}</h2>
       <span fxFlex></span>
       <div fxLayout="row" fxLayoutAlign="end">
-        <button mat-icon-button (click)="openDialog()">
+        <button matTooltip='Add Step' mat-icon-button (click)="openDialog()">
           <mat-icon>library_add</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button matTooltip='Refresh' mat-icon-button>
           <mat-icon>loop</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button matTooltip='Save Step' mat-icon-button>
           <mat-icon>save</mat-icon>
         </button>
       </div>
@@ -37,8 +37,9 @@
               </p>
             </div>
             <div style="align-content: flex-end;">
-              <mat-icon mat-list-icon>edit</mat-icon>
-              <mat-icon mat-list-icon>delete_outline</mat-icon>
+              <mat-icon matTooltip='Edit Step' mat-list-icon (click)="editStep(step)">edit</mat-icon>
+              <mat-icon matTooltip='Delete Step' mat-list-icon>delete_outline</mat-icon>
+              <mat-icon matTooltip='Copy Step' mat-list-icon>file_copy</mat-icon>
             </div>
 
           </div>

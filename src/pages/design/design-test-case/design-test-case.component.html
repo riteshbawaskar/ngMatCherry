@@ -35,7 +35,7 @@
             *ngFor="let test of testcases | filter: testsearch.value">
             <mat-icon mat-list-icon (click)="editTest(test)">edit</mat-icon>
             <mat-icon mat-list-icon (click)="deleteTest(test)">delete_outline</mat-icon>
-
+            <mat-icon mat-list-icon (click)="copyTest(test)">file_copy</mat-icon>
             <div matLine>
               <div class="id">{{test.id}}.</div>
 

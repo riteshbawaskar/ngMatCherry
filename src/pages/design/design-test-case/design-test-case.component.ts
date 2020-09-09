@@ -44,6 +44,19 @@ export class DesignTestCaseComponent implements OnInit {
     }
   }
 
+  copyTest(testcase: TestCase): void
+  {
+    let newTestcase = {...testcase};
+    newTestcase.name = testcase.name + '_copy';
+    newTestcase.testsuiteid = testcase.testsuiteid;
+    newTestcase.id = '123';
+    console.log('copy test :' + JSON.stringify(newTestcase));
+    this.tcdataservice.add(newTestcase);
+    this.testcases =  this.tcdataservice.getDataforSuite(this.suite.id);
+
+
+  }
+
   editTest(testcase: TestCase): void
   {
 

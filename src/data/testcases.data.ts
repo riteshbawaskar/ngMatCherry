@@ -134,8 +134,10 @@ getDataforSuite(id): TestCase[] {
   return (this.TESTS.filter(x => x.testsuiteid === id));
 }
 
-add(data) {
-  this.TESTS.push(data.toString());
+add(data: TestCase) {
+
+  
+  this.TESTS.push(data);
   console.log(this.TESTS);
 }
 
