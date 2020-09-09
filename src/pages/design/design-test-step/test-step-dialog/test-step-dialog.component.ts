@@ -92,6 +92,12 @@ export class TestStepDialogComponent implements OnInit {
     this.data.validation.push({ key: '', value: '' });
   }
 
+  removeValidatefield(validationfield): void
+  {
+    const index = this.data.validation.indexOf(validationfield);
+    this.data.input.splice(index, 1);
+  }
+
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -120,6 +126,11 @@ export class TestStepDialogComponent implements OnInit {
     this.data.input.push({ key: '', value: '' });
   }
 
+  removeInputfield(inputfield): void
+  {
+    const index = this.data.tags.indexOf(inputfield);
+    this.data.input.splice(index, 1);
+  }
   public OnSelectionChange(event) {
     console.log('selected ' + event.value.name);
     this.data.input = event.value.input;

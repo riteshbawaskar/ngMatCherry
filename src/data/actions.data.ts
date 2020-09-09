@@ -8,7 +8,7 @@ export class ActionsDataService {
     ACTIONS: Action[] = [
         {
           id: '1',
-          applicationId : '1',
+          componentId : '1',
           name: 'Crre.BookTrade',
           description: 'book trade in crre by sending tradexml',
           input: [{key: 'xml', value: ''}],
@@ -16,7 +16,7 @@ export class ActionsDataService {
         },
         {
             id: '2',
-            applicationId : '1',
+            componentId : '1',
             name: 'Crre.AmendTrade',
             description: 'amend trade in crre by sending tradexml',
             input: [{key: 'xml', value: ''}],
@@ -24,7 +24,7 @@ export class ActionsDataService {
           },
           {
             id: '3',
-            applicationId : '1',
+            componentId : '1',
             name: 'Crre.TerminateTrade',
             description: 'terminate in crre by sending tradexml',
             input: [{key: 'xml', value: ''}],
@@ -32,7 +32,7 @@ export class ActionsDataService {
           },
           {
             id: '4',
-            applicationId : '1',
+            componentId : '1',
             name: 'Crre.VerifyReport',
             description: 'amend trade in crre by sending tradexml',
             input: [{key: 'version', value: ''}, {key: 'state', value: ''}, {key: 'Jurisdiction', value: ''}],
@@ -40,7 +40,7 @@ export class ActionsDataService {
           },
           {
             id: '5',
-            applicationId : '2',
+            componentId : '2',
             name: 'SDR.VerifyCSML',
             description: 'verify cree_message_in',
             input: [{key: 'version', value: ''}, {key: 'state', value: ''}, {key: 'Jurisdiction', value: ''}],
@@ -48,7 +48,7 @@ export class ActionsDataService {
           },
           {
             id: '5',
-            applicationId : '2',
+            componentId : '2',
             name: 'SDR.VerifyFPML',
             description: 'verify dtcc_message_out',
             input: [{key: 'version', value: ''}, {key: 'state', value: ''}, {key: 'Jurisdiction', value: ''}],

@@ -1,7 +1,6 @@
 import {Entity} from './entity';
 
-export class Application extends Entity {
+export class Components extends Entity {
     name: string;
     description: string;
-
   }

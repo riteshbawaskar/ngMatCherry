@@ -1,3 +1,4 @@
+import { ComponentsComponent } from './../pages/Components/Components.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,6 +19,7 @@ const resultsModule = () =>
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'users', component: UsersComponent },
+  { path: 'components', component: ComponentsComponent },
   { path: 'account', loadChildren: accountModule },
   { path: 'design', loadChildren: designModule },
   { path: 'results', loadChildren: resultsModule, canActivate: [AuthGuard] },

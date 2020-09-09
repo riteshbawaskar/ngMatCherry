@@ -39,18 +39,24 @@
         </mat-form-field>
       </p>
       <p *ngFor="let input of data.input">
+        <button mat-icon-button (click)="removeInputfield(input)" >
+          <mat-icon style="font-size:20px; height:20px;width:20px"><mat-icon>remove_circle_outline</mat-icon></mat-icon>
+        </button>
         <mat-form-field style="width:30%">
           <input matInput placeholder="@input" [(ngModel)]="input.key" >
         </mat-form-field>
-        <mat-form-field style="width:60%">
+        <mat-form-field style="width:50%">
           <textarea  matInput placeholder="@value" [(ngModel)]="input.value" matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5> </textarea>
         </mat-form-field>
       </p>
       <p *ngFor="let validate of data.validation">
+        <button mat-icon-button (click)="removeValidatefield(validate)" >
+          <mat-icon style="font-size:20px; height:20px;width:20px"><mat-icon>remove_circle_outline</mat-icon></mat-icon>
+        </button>
         <mat-form-field style="width:30%">
           <input matInput placeholder="@validate" [(ngModel)]="validate.key" >
         </mat-form-field>
-        <mat-form-field style="width:60%">
+        <mat-form-field style="width:50%">
           <textarea  matInput placeholder="@value" [(ngModel)]="validate.value" matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5 > </textarea>
         </mat-form-field>
       </p>

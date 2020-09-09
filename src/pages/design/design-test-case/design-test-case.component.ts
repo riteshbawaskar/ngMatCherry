@@ -54,7 +54,6 @@ export class DesignTestCaseComponent implements OnInit {
     this.tcdataservice.add(newTestcase);
     this.testcases =  this.tcdataservice.getDataforSuite(this.suite.id);
 
-
   }
 
   editTest(testcase: TestCase): void
