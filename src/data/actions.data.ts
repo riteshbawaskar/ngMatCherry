@@ -41,11 +41,20 @@ export class ActionsDataService {
           {
             id: '5',
             applicationId : '2',
-            name: 'SDR.VerifyReport',
-            description: 'verify sdr reports',
+            name: 'SDR.VerifyCSML',
+            description: 'verify cree_message_in',
+            input: [{key: 'version', value: ''}, {key: 'state', value: ''}, {key: 'Jurisdiction', value: ''}],
+            validation: [{key: 'xml', value: ''}]
+          },
+          {
+            id: '5',
+            applicationId : '2',
+            name: 'SDR.VerifyFPML',
+            description: 'verify dtcc_message_out',
             input: [{key: 'version', value: ''}, {key: 'state', value: ''}, {key: 'Jurisdiction', value: ''}],
             validation: [{key: 'xml', value: ''}]
           }
+
 
     ];
 

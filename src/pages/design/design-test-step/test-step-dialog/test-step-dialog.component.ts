@@ -3,28 +3,38 @@ import { MatSelect } from '@angular/material/select';
 import { Action } from './../../../../models/actions';
 import { FormControl } from '@angular/forms';
 import { MatSelectSearchModule } from './../../../../core/mat-select-search/mat-select-search.module';
-import { Component, OnInit , ViewChild, Inject} from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 
-import {MatDialogRef} from '@angular/material/dialog';
-import {MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { ReplaySubject } from 'rxjs';
 import { Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+
 @Component({
   selector: 'app-test-step-dialog',
   templateUrl: './test-step-dialog.component.html',
-  styleUrls: ['./test-step-dialog.component.scss']
+  styleUrls: ['./test-step-dialog.component.scss'],
 })
 export class TestStepDialogComponent implements OnInit {
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   public frmCtrl: FormControl = new FormControl();
 
-   /** control for the MatSelect filter keyword */
+  /** control for the MatSelect filter keyword */
   public frmFilterCtrl: FormControl = new FormControl();
 
-  public filteredActions: ReplaySubject<Action[]> = new ReplaySubject<Action[]>(1);
+  public filteredActions: ReplaySubject<Action[]> = new ReplaySubject<Action[]>(
+    1
+  );
 
   @ViewChild('singleSelect') singleSelect: MatSelect;
 
@@ -32,25 +42,27 @@ export class TestStepDialogComponent implements OnInit {
 
   /** Subject that emits when the component has been destroyed. */
   private _onDestroy = new Subject<void>();
-  constructor(private actionprovider: ActionsDataService,public dialogRef: MatDialogRef<TestStepDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
-      this.actions = actionprovider.getActionData();
-
-     }
+  constructor(
+    private actionprovider: ActionsDataService,
+    public dialogRef: MatDialogRef<TestStepDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.actions = actionprovider.getActionData();
+    dialogRef.disableClose = true;
+  }
 
   ngOnInit() {
+    // set initial selection
+    // this.frmCtrl.setValue(this.actions[0]);
 
-      // set initial selection
-     // this.frmCtrl.setValue(this.actions[0]);
-
-      // load the initial bank list
-      this.filteredActions.next(this.actions.slice());
-      // listen for search field value changes
-      this.frmFilterCtrl.valueChanges
-        .pipe(takeUntil(this._onDestroy))
-        .subscribe(() => {
-          this.filterActions();
-        });
+    // load the initial bank list
+    this.filteredActions.next(this.actions.slice());
+    // listen for search field value changes
+    this.frmFilterCtrl.valueChanges
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe(() => {
+        this.filterActions();
+      });
   }
 
   ngAfterViewInit() {
@@ -77,18 +89,41 @@ export class TestStepDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   public AddValidation(): void {
-    this.data.validation.push({key: '', value: ''});
+    this.data.validation.push({ key: '', value: '' });
+  }
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add
+    if ((value || '').trim()) {
+      console.log(this.data);
+      this.data.tags.push(value.trim());
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(tag): void {
+    const index = this.data.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.data.tags.splice(index, 1);
+    }
   }
 
   public AddInput(): void {
-    this.data.input.push({key: '', value: ''});
+    this.data.input.push({ key: '', value: '' });
   }
 
-  public OnSelectionChange(event)
-  {
-      console.log('selected ' + event.value.name);
-      this.data.input = event.value.input;
-      this.data.validation = event.value.validation;
+  public OnSelectionChange(event) {
+    console.log('selected ' + event.value.name);
+    this.data.input = event.value.input;
+    this.data.validation = event.value.validation;
   }
 
   private filterActions() {
@@ -105,8 +140,9 @@ export class TestStepDialogComponent implements OnInit {
     }
     // filter the actions
     this.filteredActions.next(
-      this.actions.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
+      this.actions.filter(
+        (bank) => bank.name.toLowerCase().indexOf(search) > -1
+      )
     );
   }
-
 }

@@ -33,7 +33,7 @@ export class TestCaseDialogComponent implements OnInit {
     const input = event.input;
     const value = event.value;
 
-    // Add our fruit
+    // Add
     if ((value || '').trim()) {
       console.log(this.data);
       this.data.tags.push(value.trim());
