@@ -26,7 +26,7 @@
       <mat-card-subtitle>  {{lib.description}}</mat-card-subtitle>
         </mat-card-header>
       <mat-card-actions>
-        <button mat-button>Actions</button>
+        <a  [routerLink]="['actions',lib.id]"><button mat-button>Actions</button> </a>
         <button mat-button>Environment</button>
       </mat-card-actions>
     </mat-card>

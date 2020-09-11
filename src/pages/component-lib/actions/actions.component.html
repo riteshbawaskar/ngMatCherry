@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-toolbar>
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h2>Actions</h2>
+      <span fxFlex></span>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-icon-button>
+          <mat-icon>library_add</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>loop</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+  <div class="layout" fxLayout="column">
+    <mat-selection-list #suites [multiple]="false" class="test-cases">
+      <mat-list-option checkboxPosition="before"
+        *ngFor="let act of actions ">
+      
+        <div matLine>
+          <div class="id">{{act.id}}. {{act.name}}</div>
+        </div>
+        
+        <p matLine class="desc"> {{act.description}} </p>
+        <mat-divider></mat-divider>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>

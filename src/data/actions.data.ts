@@ -65,4 +65,8 @@ export class ActionsDataService {
       getActionData() {
         return this.ACTIONS;
       }
+
+      getDataforComponentlib(id): Action[] {
+        return (this.ACTIONS.filter(x => x.componentId === id));
+      }
 }

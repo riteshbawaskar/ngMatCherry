@@ -1,3 +1,6 @@
+import { ActionsDataService } from './../../data/actions.data';
+import { ActivatedRoute } from '@angular/router';
+import { ActionsComponent } from './actions/actions.component';
 import { MatTextAvatar } from './../../core/mat-text-avatar/mat-text-avatar.component';
 import { ComponentLibDataService } from './../../data/component-lib.data';
 import { ComponentLibRoutes } from './component-lib.routing';
@@ -14,7 +17,7 @@ import { ComponentLibComponent } from './component-lib.component';
     FlexLayoutModule,
     ComponentLibRoutes,
   ],
-  declarations: [ComponentLibComponent, MatTextAvatar],
-  providers: [ComponentLibDataService]
+  declarations: [ComponentLibComponent, ActionsComponent, MatTextAvatar],
+  providers: [ComponentLibDataService, ActionsDataService]
 })
 export class ComponentLibModule { }

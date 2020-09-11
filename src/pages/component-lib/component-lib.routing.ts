@@ -1,3 +1,4 @@
+import { ActionsComponent } from './actions/actions.component';
 import { NgModule } from '@angular/core';
 import { ComponentLibComponent } from './component-lib.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -5,9 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {
-      path: '', component: ComponentLibComponent
-  }
+  {  path: '', component: ComponentLibComponent   },
+  { path: 'actions/:id', component: ActionsComponent }
+
 ];
 
 @NgModule({
