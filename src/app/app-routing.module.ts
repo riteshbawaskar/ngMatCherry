@@ -1,4 +1,4 @@
-import { ComponentsComponent } from './../pages/Components/Components.component';
+import { ComponentLibModule } from './../pages/component-lib/component-lib.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,11 +15,14 @@ const designModule = () =>
   import('../pages/design/design.module').then((x) => x.DesignModule);
 const resultsModule = () =>
   import('../pages/results/results.module').then((x) => x.ResultsModule);
+const componentsModule = () =>
+  import('../pages/component-lib/component-lib.module').then((x) => x.ComponentLibModule);
+
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'users', component: UsersComponent },
-  { path: 'components', component: ComponentsComponent },
+  { path: 'components', loadChildren: componentsModule },
   { path: 'account', loadChildren: accountModule },
   { path: 'design', loadChildren: designModule },
   { path: 'results', loadChildren: resultsModule, canActivate: [AuthGuard] },

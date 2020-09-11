@@ -1,0 +1,26 @@
+
+@mixin avatar($size) {
+    width: $size;
+    height: $size;
+    background-color: #ccc;
+    text-align: center;
+    float: left;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+
+    .initials {
+      position: relative;
+      font-size: $size*0.8;
+      top:$size*0.25;
+      //line-height: $size*0.5;
+      color: #fff;
+      font-family: "sans-serif";
+      font-weight: bold;
+    }
+}
+
+.avatar-circle      { @include avatar(100px); }
+.avatar-circle-sm   { @include avatar(35px); }
+.avatar-circle-lg   { @include avatar(250px); }
+
