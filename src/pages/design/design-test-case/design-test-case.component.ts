@@ -59,7 +59,7 @@ export class DesignTestCaseComponent implements OnInit {
   editTest(testcase: TestCase): void
   {
 
-    let dialogRef = this.dialog.open(TestCaseDialogComponent, {
+   let dialogRef = this.dialog.open(TestCaseDialogComponent, {
       width: '400px',
       data: testcase
     });
